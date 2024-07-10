@@ -8,13 +8,13 @@ import {
 
 export class ExampleNode implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Example Node',
+		displayName: 'Teste Node',
 		name: 'exampleNode',
 		group: ['transform'],
 		version: 1,
-		description: 'Basic Example Node',
+		description: 'Teste Basic Example Node',
 		defaults: {
-			name: 'Example Node',
+			name: 'Teste Node',
 		},
 		inputs: ['main'],
 		outputs: ['main'],
@@ -29,6 +29,14 @@ export class ExampleNode implements INodeType {
 				placeholder: 'Placeholder value',
 				description: 'The description text',
 			},
+			{
+				displayName: 'My Second String',
+				name: 'mySecondString',
+				type: 'string',
+				default: '',
+				placeholder: 'Placeholder value',
+				description: 'The description text',
+			}
 		],
 	};
 
@@ -50,7 +58,7 @@ export class ExampleNode implements INodeType {
 				myString = this.getNodeParameter('myString', itemIndex, '') as string;
 				item = items[itemIndex];
 
-				item.json['myString'] = myString;
+				item.json['myFirstString'] = myString;
 			} catch (error) {
 				// This node should never fail but we want to showcase how
 				// to handle errors.
